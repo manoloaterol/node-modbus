@@ -12,8 +12,10 @@ import WriteMultipleCoilsResponse from './write-multiple-coils.js'
 import WriteMultipleRegistersResponse from './write-multiple-registers.js'
 import WriteSingleCoilRequest from './write-single-coil.js'
 import WriteSingleRegisterRequest from './write-single-register.js'
+import WriteUserLoginRequestBody from './write-user-login.js'
 
-import Debug from 'debug'; const debug = Debug('request-factory')
+import Debug from 'debug';//import { WriteUserLoginRequestBody } from 'jsmodbus/src/request'
+ const debug = Debug('request-factory')
 
 export default class RequestFactory {
 
@@ -57,6 +59,9 @@ export default class RequestFactory {
 
           case FC.WRITE_MULTIPLE_HOLDING_REGISTERS:
             return WriteMultipleRegistersResponse.fromBuffer(buffer)
+
+            case FC.WRITE_USER_LOGIN:
+              return WriteUserLoginRequestBody.fromBuffer(buffer)
 
         }
       }

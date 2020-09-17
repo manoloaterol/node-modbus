@@ -10,7 +10,8 @@ import {
   WriteMultipleCoilsRequestBody,
   WriteMultipleRegistersRequestBody,
   WriteSingleCoilRequestBody,
-  WriteSingleRegisterRequestBody
+  WriteSingleRegisterRequestBody,
+  WriteUserLoginRequestBody
 } from './request'
 
 import ModbusAbstractRequest from './abstract-request.js'
@@ -284,6 +285,20 @@ export default abstract class MBClient<S extends Stream.Duplex, Req extends Modb
     let request
     try {
       request = new WriteMultipleRegistersRequestBody(start, values)
+    } catch (e) {
+      debug('unknown request error occurred')
+      return Promise.reject(e)
+    }
+
+    return this._requestHandler.register(request)
+  }
+
+  public writeUserLogin (values: number[] | Buffer) {
+    debug('issuing new write user login request')
+
+    let request
+    try {
+      request = new WriteUserLoginRequestBody(values)
     } catch (e) {
       debug('unknown request error occurred')
       return Promise.reject(e)

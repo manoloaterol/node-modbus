@@ -215,10 +215,15 @@ export default abstract class MBClientRequestHandler<S extends Stream.Duplex, Re
       setTimeout(this._flush.bind(this), 0)
       return
     }
-
+    console.log("current request:")
+    console.log(this._currentRequest)
     const payload = this._currentRequest && this._currentRequest.createPayload()
+    console.log("And....")
+    console.log(payload)
 
     debug('flushing new request', payload)
+    let strPayload = payload === null ? "" : payload!
+    console.log(strPayload.toString('hex'))
 
     this._currentRequest && this._currentRequest.start(() => {
       this._clearCurrentRequest()

@@ -10,6 +10,7 @@ import WriteMultipleCoilsBody from './write-multiple-coils.js'
 import WriteMultipleRegistersBody from './write-multiple-registers.js'
 import WriteSingleCoilBody from './write-single-coil.js'
 import WriteSingleRegisterBody from './write-single-register.js'
+import WriteUserLoginBody from './write-user-login.js'
 
 /** Response Factory
  * @factory
@@ -64,6 +65,11 @@ export default class ResponseFactory {
       /* Write Multiple Registers Response */
       if (fc === FC.WRITE_MULTIPLE_HOLDING_REGISTERS) {
         return WriteMultipleRegistersBody.fromBuffer(buffer)
+      }
+
+      /* Write User Login Response */
+      if (fc === FC.WRITE_USER_LOGIN) {
+        return WriteUserLoginBody.fromBuffer(buffer)
       }
 
       return null

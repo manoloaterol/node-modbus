@@ -14,6 +14,7 @@ export type ModbusRequestTypeName =
   | 'WriteSingleCoil'
   | 'WriteSingleRegister'
   | 'ExceptionRequest'
+  | 'WriteUserLogin'
 /** Common Modbus Request Body
  *
  *

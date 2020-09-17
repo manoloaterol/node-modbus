@@ -9,3 +9,4 @@ export { default as WriteMultipleCoilsResponseBody } from './write-multiple-coil
 export { default as WriteMultipleRegistersResponseBody } from './write-multiple-registers'
 export { default as WriteSingleCoilResponseBody } from './write-single-coil'
 export { default as WriteSingleRegisterResponseBody } from './write-single-register'
+export { default as WriteUserLoginResponseBody } from './write-user-login'

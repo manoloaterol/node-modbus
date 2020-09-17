@@ -9,3 +9,4 @@ export { default as WriteMultipleCoilsRequestBody, isWriteMultipleCoilsRequestBo
 export { default as WriteMultipleRegistersRequestBody, isWriteMultipleRegistersRequestBody } from './write-multiple-registers'
 export { default as WriteSingleCoilRequestBody, isWriteSingleCoilRequestBody } from './write-single-coil'
 export { default as WriteSingleRegisterRequestBody, isWriteSingleRegisterRequestBody } from './write-single-register'
+export { default as WriteUserLoginRequestBody, isWriteUserLoginRequestBody } from './write-user-login'
