@@ -2,6 +2,8 @@ import { FC } from '../codes'
 
 import ModbusRequestBody from './request-body.js'
 
+import Debug = require('debug'); const debug = Debug('write-user-login')
+
 /** Write User Login Body
  * @extends ModbusRequestBody
  */
@@ -97,8 +99,8 @@ export default class WriteUserLoginRequestBody extends ModbusRequestBody {
     const payload = Buffer.alloc(1 + this._numberOfBytes)
     payload.writeUInt8(this._fc, 0) // function code
     this._valuesAsBuffer.copy(payload, 1)
-    console.log("payload:")
-    console.log(payload)
+    debug("payload:")
+    debug(payload)
     return payload
   }
 }
